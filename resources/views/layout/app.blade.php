@@ -35,6 +35,8 @@
 			isLandingPage: true
 		};
 	</script>
+
+	@yield('adsenseScript')
 </head>
 <body class="font-golos bg-body-bg text-body group/body">
 	<script src="/assets/js/tabler-theme.min.js"></script>

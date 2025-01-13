@@ -258,7 +258,10 @@
 								</span>
                             </a>
                             <div class="dropdown-menu {{activeRouteBulkShow(['dashboard.admin.frontend.settings', 'dashboard.admin.frontend.faq.index', 'dashboard.admin.frontend.tools.index', 'dashboard.admin.testimonials.index', 'dashboard.admin.frontend.future.index', 'dashboard.admin.frontend.whois.index', 'dashboard.admin.frontend.generatorlist.index', 'dashboard.admin.clients.index','dashboard.admin.howitWorks.index', 'dashboard.admin.frontend.sectionsettings', 'dashboard.admin.frontend.menusettings' ])}}">
-                                <a class="dropdown-item {{activeRoute('dashboard.admin.frontend.settings')}}" href="{{route('dashboard.admin.frontend.settings')}}">
+								<a class="dropdown-item {{activeRoute('dashboard.admin.frontend.adsense.settings')}}" href="{{route('dashboard.admin.frontend.adsense.settings')}}">
+									{{__('Adsense Settings')}}
+								</a>
+								<a class="dropdown-item {{activeRoute('dashboard.admin.frontend.settings')}}" href="{{route('dashboard.admin.frontend.settings')}}">
                                     {{__('Frontend Settings')}}
                                 </a>
                                 <a class="dropdown-item {{activeRoute('dashboard.admin.frontend.sectionsettings')}}" href="{{route('dashboard.admin.frontend.sectionsettings')}}">

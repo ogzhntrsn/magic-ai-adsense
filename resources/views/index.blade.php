@@ -1,5 +1,9 @@
 @extends('layout.app')
 
+@section('adsenseScript')
+	{!! $adsenseScript->adsense_code !!}
+@endsection
+
 @section('content')
 
 <section class="site-section flex items-center justify-center min-h-screen text-center text-white relative py-52 max-md:pb-16 max-md:pt-48 overflow-hidden bg-gradient-to-br from-[#3655df] via-[#A068FA] via-70% to-[#327BD1]" id="banner">
@@ -72,6 +76,7 @@
 <section id="features">
 	<section class="site-section pb-20 pt-32 md:opacity-0 md:translate-y-8 transition-all duration-700 [&.lqd-is-in-view]:opacity-100 [&.lqd-is-in-view]:translate-y-0">
 		<div class="container">
+			{!! $adsenseFeatures->adsense_code !!}
 			<x-section-header
 				title="{!! __($fSectSettings->features_title) !!}"
 				subtitle="{!! __($fSectSettings->features_description) ?? __('MagicAI is designed to help you generate high-quality content instantly, without breaking a sweat.') !!}"
@@ -93,6 +98,7 @@
     @if($fSectSettings->generators_active == 1)
 	<section class="site-section md:opacity-0 md:translate-y-8 transition-all duration-700 [&.lqd-is-in-view]:opacity-100 [&.lqd-is-in-view]:translate-y-0">
 		<div class="container">
+			{!! $adsenseGenerators->adsense_code !!}
 			<div class="border rounded-[50px] p-20 max-xl:px-10 max-lg:py-12 max-sm:px-5">
 				<div class="lqd-tabs" data-lqd-tabs-style="1">
 					<div class="mb-9 lqd-tabs-triggers max-lg:grid-cols-3 max-lg:gap-4 max-md:grid-cols-2 max-sm:grid-cols-1 grid justify-between grid-cols-5 gap-8">
@@ -137,6 +143,7 @@
     @if($fSectSettings->who_is_for_active == 1)
     <section class="site-section py-20 md:opacity-0 md:translate-y-8 transition-all duration-700 [&.lqd-is-in-view]:opacity-100 [&.lqd-is-in-view]:translate-y-0">
 		<div class="container">
+			{!! $adsenseWhoIsFor->adsense_code !!}
 			<div class="max-lg:grid-cols-2 max-md:grid-cols-1 grid grid-cols-3 gap-4">
                 @foreach($who_is_for as $entry)
 				<x-color-box title="{!! __($entry->title) !!}" color="{{$entry->color}}" />
@@ -152,6 +159,7 @@
 @if($fSectSettings->custom_templates_active == 1)
 <section class="site-section pb-9 md:opacity-0 md:translate-y-8 transition-all duration-700 [&.lqd-is-in-view]:opacity-100 [&.lqd-is-in-view]:translate-y-0" id="templates">
 	<div class="container">
+		{!! $adsenseCustomTemplates->adsense_code !!}
 		<div class="p-10 border rounded-[50px] max-sm:px-5">
 			<x-section-header
 				mb="7"
@@ -211,6 +219,7 @@
 @if($fSectSettings->tools_active == 1)
 <section class="site-section py-10 md:opacity-0 md:translate-y-8 transition-all duration-700 [&.lqd-is-in-view]:opacity-100 [&.lqd-is-in-view]:translate-y-0">
 	<div class="container">
+		{!! $adsenseTools->adsense_code !!}
 		<div class="p-10 border rounded-[50px] max-sm:px-6 max-sm:py-16">
 			<x-section-header
 				mb="14"
@@ -235,6 +244,7 @@
 @if($fSectSettings->how_it_works_active == 1)
 <section class="site-section py-10 md:opacity-0 md:translate-y-8 transition-all duration-700 [&.lqd-is-in-view]:opacity-100 [&.lqd-is-in-view]:translate-y-0" id="how-it-works">
 	<div class="container">
+		{!! $adsenseHowItWorks->adsense_code !!}
 		<div class="p-10 py-24 bg-[#010101] rounded-[50px] shadow-xl text-white text-opacity-60 max-sm:px-5 bg-cover" style="background-image: url(/assets/img/site/steps-bg.jpg);">
 			<div class="mb-14 max-xl:w-1/2 max-lg:w-8/12 max-md:w-full w-2/5 mx-auto text-center">
 				<h2 class="text-[#E5E6E6] text-[64px] leading-none max-sm:text-[45px]">{!! __($fSectSettings->how_it_works_title) !!}</h2>
@@ -261,6 +271,7 @@
 <section class="site-section relative py-10 md:opacity-0 md:translate-y-8 transition-all duration-700 [&.lqd-is-in-view]:opacity-100 [&.lqd-is-in-view]:translate-y-0" id="testimonials">
 	<div class="absolute inset-x-0 top-0 -z-1 h-[150vh]" style="background: linear-gradient(to bottom, transparent, #F0EFFA, transparent)"></div>
 	<div class="container relative">
+		{!! $adsenseTestimonials->adsense_code !!}
 		<div class="p-11 pb-24 border rounded-[50px] bg-contain bg-center bg-no-repeat max-sm:px-5" style="background-image: url(/assets/img/site/world-map.png)">
 			<x-section-header
 				width="w-1/2"
@@ -329,6 +340,7 @@
 @if($fSectSettings->pricing_active == 1)
 <section class="site-section relative py-10 md:opacity-0 md:translate-y-8 transition-all duration-700 [&.lqd-is-in-view]:opacity-100 [&.lqd-is-in-view]:translate-y-0" id="pricing">
 	<div class="container relative">
+		{!! $adsensePricing->adsense_code !!}
 		<div class="p-11 border rounded-[50px] relative max-lg:px-5">
 			<x-section-header
 				mb="7"
@@ -403,6 +415,7 @@
 @if($fSectSettings->faq_active == 1)
     <section class="site-section py-10 md:opacity-0 md:translate-y-8 transition-all duration-700 [&.lqd-is-in-view]:opacity-100 [&.lqd-is-in-view]:translate-y-0" id="faq">
         <div class="container">
+			{!! $adsenseFaq->adsense_code !!}
             <div class="p-11 pb-16 border rounded-[50px] relative max-sm:px-5">
                 <x-section-header
                     mb="9"
@@ -433,6 +446,7 @@
 
 @if($setting->gdpr_status == 1)
 <div id="gdpr" class="bg-white fixed z-50 p-2 rounded-full drop-shadow-2xl bottom-12 left-1/2 -translate-x-1/2 max-sm:w-11/12">
+	{!! $adsenseGdpr->adsense_code !!}
 	<div class="flex items-center justify-between gap-6 text-sm">
 		<div class="content-left pl-4">
 			{!! __($setting->gdpr_content) !!}
