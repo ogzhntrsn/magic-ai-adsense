@@ -29,6 +29,7 @@ use App\Models\UserOpenai;
 use App\Models\UserOpenaiChat;
 use App\Models\UserOpenaiChatMessage;
 use App\Models\UserOrder;
+use App\Services\AdsenseSettingService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Cache;
@@ -1078,6 +1079,13 @@ class AdminController extends Controller
         $item = FrontendGenerators::where('id', $id)->firstOrFail();
         $item->delete();
         return back()->with(['message' => 'Item deleted succesfully', 'type' => 'success']);
+    }
+
+    public function frontendAdsense()
+    {
+        $adsenseSettingsService = app()->make(AdsenseSettingService::class);
+        $adsenseSettings = $adsenseSettingsService->getSettings();
+        return view('panel.admin.frontend.adsense.index', compact('adsenseSettings'));
     }
 }
 

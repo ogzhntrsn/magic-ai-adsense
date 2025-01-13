@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdsenseSettingController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\AdminController;
@@ -301,6 +302,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
                     Route::get('/create-or-update/{id?}', [AdminController::class, 'frontendGeneratorlistCreateOrUpdate'])->name('createOrUpdate');
                     Route::get('/action/delete/{id}', [AdminController::class, 'frontendGeneratorlistDelete'])->name('delete');
                     Route::post('/action/save', [AdminController::class, 'frontendGeneratorlistCreateOrUpdateSave']);
+                });
+
+                //Adsense
+                Route::prefix('adsense')->middleware('admin')->name('adsense.')->group(function () {
+                    Route::put('/{adsenseSetting}', [AdsenseSettingController::class, 'update'])->name('update');
+                    Route::get('/settings', [AdminController::class, 'frontendAdsense'])->name('settings');
                 });
 
             });

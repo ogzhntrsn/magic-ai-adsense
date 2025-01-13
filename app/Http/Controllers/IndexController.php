@@ -17,6 +17,7 @@ use App\Models\OpenaiGeneratorFilter;
 use App\Models\PaymentPlans;
 use App\Models\Setting;
 use App\Models\Testimonials;
+use App\Services\AdsenseSettingService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -25,6 +26,13 @@ use Illuminate\Support\Facades\Redirect;
 
 class IndexController extends Controller
 {
+    protected AdsenseSettingService $adsenseService;
+
+    public function __construct(AdsenseSettingService $service)
+    {
+        $this->adsenseService = $service;
+    }
+
     public function index(){
 
         $filters = OpenaiGeneratorFilter::all();
@@ -40,6 +48,18 @@ class IndexController extends Controller
         $clients = Clients::all();
         $who_is_for = FrontendForWho::all();
         $generatorsList = FrontendGenerators::all();
+
+        $adsenseScript = $this->adsenseService->getByPlace('script');
+        $adsenseFeatures = $this->adsenseService->getByPlace('features');
+        $adsenseGenerators = $this->adsenseService->getByPlace('generators');
+        $adsenseWhoIsFor = $this->adsenseService->getByPlace('who_is_for');
+        $adsenseCustomTemplates = $this->adsenseService->getByPlace('custom_templates');
+        $adsenseTools = $this->adsenseService->getByPlace('tools');
+        $adsenseHowItWorks = $this->adsenseService->getByPlace('how_it_works');
+        $adsenseTestimonials = $this->adsenseService->getByPlace('testimonials');
+        $adsensePricing = $this->adsenseService->getByPlace('pricing');
+        $adsenseFaq = $this->adsenseService->getByPlace('faq');
+        $adsenseGdpr = $this->adsenseService->getByPlace('gdpr');
 
 
 
@@ -62,7 +82,18 @@ class IndexController extends Controller
             'clients',
             'futures',
             'who_is_for',
-            'generatorsList'
+            'generatorsList',
+            'adsenseScript',
+            'adsenseFeatures',
+            'adsenseGenerators',
+            'adsenseWhoIsFor',
+            'adsenseCustomTemplates',
+            'adsenseTools',
+            'adsenseHowItWorks',
+            'adsenseTestimonials',
+            'adsensePricing',
+            'adsenseFaq',
+            'adsenseGdpr'
         ));
     }
 
